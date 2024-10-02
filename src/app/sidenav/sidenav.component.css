@@ -1,0 +1,19 @@
+.sidenav {
+    width: 250px;
+    height: 100vh;
+    background-color: #2d3e50;
+    color: #fff;
+    padding: 20px;
+  }
+  .sidenav ul {
+    list-style: none;
+    padding: 0;
+  }
+  .sidenav ul li {
+    margin-bottom: 20px;
+  }
+  .sidenav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
