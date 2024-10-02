@@ -1,39 +1,34 @@
 import { Component, Renderer2, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './sidenav.component.html',
-  styleUrl: './sidenav.component.css'
+  styleUrls: ['./sidenav.component.css']
 })
-
-
 export class SidenavComponent implements OnInit {
-  selectedTheme: string = 'light';  // Default to light theme
+  selectedTheme: string = 'light';  
+  isCollapsed: boolean = false; 
 
   constructor(private renderer: Renderer2) {}
 
-  // OnInit lifecycle hook to apply the saved theme on initialization
   ngOnInit() {
-    // Retrieve the saved theme from local storage, or default to 'light'
     const storedTheme = localStorage.getItem('selectedTheme') || 'light';
     this.applyTheme(storedTheme);
   }
 
-  // Handle sidebar item click, but no theme change happens here
   onSidebarItemClick(event: Event) {
     event.stopPropagation();
   }
 
-  // Change theme and store it in local storage
   changeTheme(theme: string) {
     this.selectedTheme = theme;
-    localStorage.setItem('selectedTheme', theme);  // Persist the selected theme
-    this.applyTheme(theme);  // Apply the theme class to the sidenav
+    localStorage.setItem('selectedTheme', theme);
+    this.applyTheme(theme);
   }
 
-  // Apply the theme to the sidenav element
   applyTheme(theme: string) {
     const sidenavElement = document.querySelector('.sidenav');
     if (theme === 'dark') {
@@ -41,5 +36,9 @@ export class SidenavComponent implements OnInit {
     } else {
       this.renderer.removeClass(sidenavElement, 'dark');
     }
+  }
+
+  toggleSidenav() {
+    this.isCollapsed = !this.isCollapsed; 
   }
 }
