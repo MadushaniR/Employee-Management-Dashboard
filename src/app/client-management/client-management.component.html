@@ -1,0 +1,46 @@
+<section class="dashboard">
+  <h2>Employees</h2>
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="filterEmployees()"
+      class="search-input"
+    />
+    <button class="search-button" (click)="filterEmployees()">
+      <mat-icon class="search-icon">search</mat-icon>
+    </button>
+  </div>
+  
+  
+  <div class="employee-grid">
+    <div *ngFor="let employee of displayedEmployees" class="employee-card">
+      <mat-card class="employee-mat-card">
+        <img [src]="employee.image" alt="{{ employee.name }}" class="employee-img">
+        <div class="employee-info">
+          <h3>{{ employee.name }}</h3>
+          <p class="position">{{ employee.position }}</p>
+          <p class="category">Category: {{ employee.category }}</p>
+          <p class="join-date">Join on: {{ employee.joinDate }}</p>
+
+          <div class="location">
+            <span matBadge="{{ employee.location }}" matBadgeOverlap="false" class="location-badge">
+              <mat-icon>{{ employee.locationIcon }}</mat-icon>
+            </span>
+            <span>{{ employee.location }}</span>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- Paginator -->
+  <mat-paginator 
+    [length]="employees.length" 
+    [pageSize]="pageSize" 
+    [pageSizeOptions]="[5, 10, 20]" 
+    (page)="onPageChange($event)" 
+    showFirstLastButtons>
+  </mat-paginator>
+</section>
