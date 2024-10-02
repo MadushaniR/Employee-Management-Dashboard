@@ -2,20 +2,20 @@
   <h2>Employees</h2>
 
   <div class="employee-grid">
-    <div *ngFor="let employee of employees" class="employee-card">
-      <mat-card>
+    <div *ngFor="let employee of displayedEmployees" class="employee-card">
+      <mat-card class="employee-mat-card">
         <img [src]="employee.image" alt="{{ employee.name }}" class="employee-img">
         <div class="employee-info">
           <h3>{{ employee.name }}</h3>
-          <p>{{ employee.position }}</p>
-          <p>{{ employee.category }}</p>
-          <p>Join on: {{ employee.joinDate }}</p>
+          <p class="position">{{ employee.position }}</p>
+          <p class="category">Category: {{ employee.category }}</p>
+          <p class="join-date">Join on: {{ employee.joinDate }}</p>
 
-          <!-- Using Mat Badge -->
-          <div>
-            <span matBadge="{{ employee.location }}" matBadgeOverlap="false">
+          <div class="location">
+            <span matBadge="{{ employee.location }}" matBadgeOverlap="false" class="location-badge">
               <mat-icon>{{ employee.locationIcon }}</mat-icon>
             </span>
+            <span>{{ employee.location }}</span>
           </div>
         </div>
       </mat-card>
@@ -23,5 +23,11 @@
   </div>
 
   <!-- Paginator -->
-  <mat-paginator [length]="50" [pageSize]="10"></mat-paginator>
+  <mat-paginator 
+    [length]="employees.length" 
+    [pageSize]="pageSize" 
+    [pageSizeOptions]="[5, 10, 20]" 
+    (page)="onPageChange($event)" 
+    showFirstLastButtons>
+  </mat-paginator>
 </section>
