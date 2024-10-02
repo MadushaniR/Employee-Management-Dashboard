@@ -4,12 +4,12 @@ import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientManagementComponent } from './client-management/client-management.component';
-
+import { FilterPanelComponent } from './filter-panel/filter-panel.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, SidenavComponent, DashboardComponent, ClientManagementComponent],
+  imports: [RouterOutlet, HeaderComponent, SidenavComponent, DashboardComponent, ClientManagementComponent, FilterPanelComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
