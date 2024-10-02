@@ -1,19 +1,98 @@
 .sidenav {
     width: 250px;
     height: 100vh;
-    background-color: #2d3e50;
-    color: #fff;
+    background-color: #f4f4f4;
+    color: #8A8C91;
     padding: 20px;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
+  
+  .sidenav.dark {
+    background-color: #2d3e50;
+    color: #8A8C91;
+  }
+  
   .sidenav ul {
     list-style: none;
     padding: 0;
   }
+  
   .sidenav ul li {
     margin-bottom: 20px;
   }
+  
   .sidenav ul li a {
-    color: #fff;
+    color: #8A8C91;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  
+  .sidenav ul li a i {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .sidenav ul li a:hover,
+  .sidenav ul li a.active {
+    color: #fff; 
+    background-color: transparent;
+  }
+  
+  .sidenav.dark ul li a {
+    color: #8A8C91;
+  }
+  
+  .sidenav.dark ul li a:hover,
+  .sidenav.dark ul li a.active {
+    color: #fff;
+    background-color: transparent;
+  }
+  
+  .mode-toggle {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2d3e50;
+    padding: 10px;
+    border-radius: 8px;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .mode-toggle label {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+  .mode-toggle label input[type="radio"] {
+    display: none;
+  }
+  
+  .mode-toggle label span.icon {
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .mode-toggle label input[type="radio"]:checked + span.icon {
+    color: #4caf50;
+  }
+  
+  .sidenav.dark .mode-toggle {
+    background-color: #202224;
+  }
+  
+  .bottom-area {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2D2F39;
+    padding: 10px 20px;
+    box-sizing: border-box;
   }
   

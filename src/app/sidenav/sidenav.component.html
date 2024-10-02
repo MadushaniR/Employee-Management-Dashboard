@@ -1,10 +1,23 @@
 <nav class="sidenav">
     <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Client Management</a></li>
-      <li><a href="#">User Management</a></li>
-      <li><a href="#">Schedules</a></li>
-      <li><a href="#">Settings</a></li>
+      <li><a href="dashboard" (click)="onSidebarItemClick($event)"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+      <li><a href="#" (click)="onSidebarItemClick($event)"><i class="fas fa-chart-bar"></i> Client Management</a></li>
+      <li><a href="#" (click)="onSidebarItemClick($event)"><i class="fas fa-users"></i> User Management</a></li>
+      <li><a href="#" (click)="onSidebarItemClick($event)"><i class="fas fa-calendar-alt"></i> Schedules</a></li>
+      <li><a href="#" (click)="onSidebarItemClick($event)"><i class="fas fa-cog"></i> Settings</a></li>
     </ul>
+  
+    <div class="bottom-area">
+      <div class="mode-toggle">
+        <label>
+          <input type="radio" name="theme" value="light" (click)="changeTheme('light')" [checked]="selectedTheme === 'light'" />
+          <span class="icon">☀️ Light</span>
+        </label>
+        <label>
+          <input type="radio" name="theme" value="dark" (click)="changeTheme('dark')" [checked]="selectedTheme === 'dark'" />
+          <span class="icon">🌙 Dark</span>
+        </label>
+      </div>
+    </div>
   </nav>
   
