@@ -8,7 +8,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-client-management',
@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
     MatButtonModule,
     MatChipsModule,
     MatBadgeModule,
-    FormsModule // Include FormsModule
+    FormsModule
   ],
   templateUrl: './client-management.component.html',
   styleUrls: ['./client-management.component.css'],
@@ -146,6 +146,7 @@ export class ClientManagementComponent {
   pageSize: number = 10;
   currentPage: number = 0;
   sortOrder: 'asc' | 'desc' = 'asc'; // Default sort order
+  isDialogOpen: boolean = false; // Track dialog visibility
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -186,5 +187,18 @@ export class ClientManagementComponent {
         return b.name.localeCompare(a.name); // Descending
       }
     });
+  }
+
+  openDialog() {
+    this.isDialogOpen = true; // Show the dialog
+  }
+
+  closeDialog() {
+    this.isDialogOpen = false; // Close the dialog
+  }
+
+  applyFilter() {
+    this.filterEmployees(); // Apply the filter based on the search term
+    this.closeDialog(); // Close the dialog after applying filter
   }
 }

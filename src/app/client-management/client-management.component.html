@@ -4,6 +4,20 @@
   <mat-icon class="sort-icon">{{ sortOrder === 'asc' ? 'arrow_drop_down' : 'arrow_drop_up' }}</mat-icon>
 </div>
 
+<button class="filter-button" (click)="openDialog()">Filter</button>
+
+<!-- Modal Dialog Implementation -->
+<div class="dialog" *ngIf="isDialogOpen">
+  <div class="dialog-overlay" (click)="closeDialog()"></div>
+  <div class="dialog-content">
+    <h2>Filter Employees</h2>
+    <label for="searchTerm">Search Term</label>
+    <input type="text" [(ngModel)]="searchTerm" id="searchTerm" />
+    <button (click)="applyFilter()">Apply</button>
+    <button (click)="closeDialog()">Close</button>
+  </div>
+</div>
+
 <div class="search-container">
   <input
     type="text"
