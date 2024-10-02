@@ -8,7 +8,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
 
 @Component({
   selector: 'app-client-management',
@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatChipsModule,
     MatBadgeModule,
-    FormsModule 
+    FormsModule // Include FormsModule
   ],
   templateUrl: './client-management.component.html',
   styleUrls: ['./client-management.component.css'],
@@ -145,6 +145,7 @@ export class ClientManagementComponent {
   displayedEmployees: any[] = [];
   pageSize: number = 10;
   currentPage: number = 0;
+  sortOrder: 'asc' | 'desc' = 'asc'; // Default sort order
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -165,15 +166,25 @@ export class ClientManagementComponent {
   }
 
   filterEmployees() {
-    if (!this.searchTerm) {
-      this.updateDisplayedEmployees();
-      return;
-    }
-
     const filteredEmployees = this.employees.filter(employee => 
       employee.name.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
 
-    this.displayedEmployees = filteredEmployees.slice(0, this.pageSize);
+    this.displayedEmployees = this.sortEmployees(filteredEmployees).slice(0, this.pageSize);
+  }
+
+  toggleSort() {
+    this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    this.filterEmployees(); // Re-filter employees after sorting
+  }
+
+  sortEmployees(employees: any[]) {
+    return employees.sort((a, b) => {
+      if (this.sortOrder === 'asc') {
+        return a.name.localeCompare(b.name); // Ascending
+      } else {
+        return b.name.localeCompare(a.name); // Descending
+      }
+    });
   }
 }
