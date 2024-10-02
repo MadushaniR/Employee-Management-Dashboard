@@ -79,3 +79,46 @@ h2 {
 .mat-paginator-page-size {
   font-size: 14px;
 }
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.mat-form-field {
+  width: 70%;
+}
+
+.mat-form-field .mat-form-field-outline {
+  color: black; 
+}
+
+.mat-form-field .mat-form-field-outline mat-icon {
+  color: black; 
+}.search-container {
+  position: relative;
+  width: 300px; 
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 40px 8px 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 20px;
+}
+
+.search-button {
+  position: absolute; 
+  right: 1px; 
+  top: 50%; 
+  transform: translateY(-50%);
+  background: none; 
+  border: none;
+  cursor: pointer; 
+  padding: 0;
+}
+
+.search-icon {
+  font-size: 20px; 
+  color: #333; 
+  margin-top: 10px;
+}

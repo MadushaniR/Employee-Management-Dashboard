@@ -1,6 +1,19 @@
 <section class="dashboard">
   <h2>Employees</h2>
-
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="filterEmployees()"
+      class="search-input"
+    />
+    <button class="search-button" (click)="filterEmployees()">
+      <mat-icon class="search-icon">search</mat-icon>
+    </button>
+  </div>
+  
+  
   <div class="employee-grid">
     <div *ngFor="let employee of displayedEmployees" class="employee-card">
       <mat-card class="employee-mat-card">

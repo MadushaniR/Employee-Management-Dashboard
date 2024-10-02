@@ -8,6 +8,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-client-management',
@@ -20,7 +21,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatButtonModule,
     MatChipsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    FormsModule 
   ],
   templateUrl: './client-management.component.html',
   styleUrls: ['./client-management.component.css'],
@@ -139,10 +141,10 @@ export class ClientManagementComponent {
     },
   ];
 
-  // Pagination properties
-  displayedEmployees: any[] = []; // Employees to display on the current page
-  pageSize: number = 10; // Default page size
-  currentPage: number = 0; // Current page index
+  searchTerm: string = '';
+  displayedEmployees: any[] = [];
+  pageSize: number = 10;
+  currentPage: number = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -150,17 +152,28 @@ export class ClientManagementComponent {
     this.updateDisplayedEmployees();
   }
 
-  // Method to handle page changes
   onPageChange(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.currentPage = event.pageIndex;
     this.updateDisplayedEmployees();
   }
 
-  // Update displayed employees based on pagination
   updateDisplayedEmployees() {
     const startIndex = this.currentPage * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.displayedEmployees = this.employees.slice(startIndex, endIndex);
+  }
+
+  filterEmployees() {
+    if (!this.searchTerm) {
+      this.updateDisplayedEmployees();
+      return;
+    }
+
+    const filteredEmployees = this.employees.filter(employee => 
+      employee.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+
+    this.displayedEmployees = filteredEmployees.slice(0, this.pageSize);
   }
 }
