@@ -1,19 +1,27 @@
 <section class="dashboard">
-    <h2>Employees</h2>
-    <div class="filter-bar">
-      <!-- Add filters (search, filter, sort) here -->
-    </div>
-    <div class="employee-grid">
-      <div class="employee-card" >
-        dashboard
-        <!-- <img [src]="employee.image" alt="Employee Image" class="employee-img">
+  <h2>Employees</h2>
+
+  <div class="employee-grid">
+    <div *ngFor="let employee of employees" class="employee-card">
+      <mat-card>
+        <img [src]="employee.image" alt="{{ employee.name }}" class="employee-img">
         <div class="employee-info">
           <h3>{{ employee.name }}</h3>
           <p>{{ employee.position }}</p>
-          <p>{{ employee.department }}</p>
-          <p>{{ employee.joinDate }}</p>
-        </div> -->
-      </div>
+          <p>{{ employee.category }}</p>
+          <p>Join on: {{ employee.joinDate }}</p>
+
+          <!-- Using Mat Badge -->
+          <div>
+            <span matBadge="{{ employee.location }}" matBadgeOverlap="false">
+              <mat-icon>{{ employee.locationIcon }}</mat-icon>
+            </span>
+          </div>
+        </div>
+      </mat-card>
     </div>
-  </section>
-  
+  </div>
+
+  <!-- Paginator -->
+  <mat-paginator [length]="50" [pageSize]="10"></mat-paginator>
+</section>
