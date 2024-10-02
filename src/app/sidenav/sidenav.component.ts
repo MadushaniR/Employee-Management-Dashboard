@@ -1,12 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './sidenav.component.html',
-  styleUrl: './sidenav.component.css'
+  styleUrls: ['./sidenav.component.css']
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit {
+  selectedTheme: string = 'light';  
+  isCollapsed: boolean = false; 
 
+  constructor(private renderer: Renderer2) {}
+
+  ngOnInit() {
+    const storedTheme = localStorage.getItem('selectedTheme') || 'light';
+    this.applyTheme(storedTheme);
+  }
+
+  onSidebarItemClick(event: Event) {
+    event.stopPropagation();
+  }
+
+  changeTheme(theme: string) {
+    this.selectedTheme = theme;
+    localStorage.setItem('selectedTheme', theme);
+    this.applyTheme(theme);
+  }
+
+  applyTheme(theme: string) {
+    const sidenavElement = document.querySelector('.sidenav');
+    if (theme === 'dark') {
+      this.renderer.addClass(sidenavElement, 'dark');
+    } else {
+      this.renderer.removeClass(sidenavElement, 'dark');
+    }
+  }
+
+  toggleSidenav() {
+    this.isCollapsed = !this.isCollapsed; 
+  }
 }

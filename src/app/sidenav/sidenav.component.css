@@ -1,19 +1,81 @@
 .sidenav {
-    width: 250px;
+    width: 180px;
     height: 100vh;
-    background-color: #2d3e50;
-    color: #fff;
+    background-color: #f4f4f4;
+    color: #8A8C91;
     padding: 20px;
-  }
-  .sidenav ul {
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease, width 0.3s ease;
+}
+
+.sidenav.collapsed {
+    width: 10px;
+}
+
+.sidenav ul {
     list-style: none;
     padding: 0;
-  }
-  .sidenav ul li {
+}
+
+.sidenav ul li {
     margin-bottom: 20px;
-  }
-  .sidenav ul li a {
-    color: #fff;
+}
+
+.sidenav ul li a {
+    color: #8A8C91;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.sidenav ul li a i {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+
+.toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: -20px; 
+    background-color: #2d3e50;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+    background-color: #3a4a61;
+}
+
+.sidenav.dark {
+    background-color: #2d3e50;
+    color: #8A8C91;
+}
+
+.sidenav.dark ul li a {
+    color: #8A8C91;
+}
+
+.sidenav.dark ul li a:hover,
+.sidenav.dark ul li a.active {
+    color: #fff;
+    background-color: transparent;
+}
+
+  
+  .toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #8A8C91; 
   }
   
