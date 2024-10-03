@@ -87,18 +87,15 @@
 
 <div class="employee-cards">
   <mat-card *ngFor="let employee of displayedEmployees" class="employee-card">
-    <mat-card-header>
-      <mat-card-title>{{ employee.name }}</mat-card-title>
-      <mat-card-subtitle>{{ employee.position }}</mat-card-subtitle>
-    </mat-card-header>
     <img mat-card-image [src]="employee.image" alt="{{ employee.name }}">
-    <mat-card-content>
-      <p>Category: {{ employee.category }}</p>
-      <p>Join Date: {{ employee.joinDate }}</p>
-      <p>Location: <mat-icon class="expand">{{ employee.locationIcon }}</mat-icon> {{ employee.location }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>View Details</button>
-    </mat-card-actions>
+    <mat-card-header>
+      <mat-card-title class="name">{{ employee.name }}</mat-card-title>
+      <mat-card-subtitle class="sub-titles">{{ employee.position }}</mat-card-subtitle>
+      <mat-card-subtitle class="sub-titles">{{ employee.department }}</mat-card-subtitle>
+      <mat-card-subtitle class="sub-titles">#{{ employee.id }}</mat-card-subtitle>
+    
+    </mat-card-header>
+    <p><span class="label">Category:</span> {{ employee.category }}</p>
+    <p><span class="label">Join On:</span> {{ employee.joinDate }}</p>
   </mat-card>
 </div>
