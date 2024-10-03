@@ -19,7 +19,7 @@
     <div class="dialog-header">
       <div class="filter-title">Filter</div>
       <hr />
-      <mat-icon class="close-icon" (click)="closeDialog()">close</mat-icon> <!-- Close Icon -->
+      <mat-icon class="close-icon" (click)="closeDialog()">close</mat-icon>
       <hr />
     </div>
 
@@ -98,7 +98,7 @@
   </mat-card>
 </div>
 
-<!-- Fixed Position Pagination Control -->
+<!-- Pagination Control -->
 <div class="paginator-container">
   <mat-paginator [length]="employees.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
     (page)="onPageChange($event)">

@@ -28,7 +28,6 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./client-management.component.css'],
 })
 export class ClientManagementComponent implements OnInit {
-  // Employees data with qualifications
   employees = [
     {
       id: 1,
@@ -40,7 +39,7 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_on',
       gender: 'male',
       qualification: 'Diploma',
-      department:  "IT",
+      department: "IT",
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
     },
     {
@@ -53,7 +52,7 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_off',
       gender: 'male',
       qualification: 'Degree',
-      department:  "IT",
+      department: "IT",
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
     },
     {
@@ -66,7 +65,7 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_on',
       gender: 'female',
       qualification: 'Higher Diploma',
-      department:  "IT",
+      department: "IT",
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     },
     {
@@ -79,7 +78,7 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_off',
       gender: 'female',
       qualification: 'Certificate',
-      department:  "IT",
+      department: "IT",
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     },
     {
@@ -92,9 +91,9 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_off',
       gender: 'female',
       qualification: 'Degree',
-      department:  "IT",
+      department: "IT",
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
-    }, 
+    },
     {
       id: 6,
       name: 'Priya Kumar',
@@ -105,9 +104,9 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_off',
       gender: 'female',
       qualification: 'Higher Diploma',
-      department:  "IT",
+      department: "IT",
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
-    },  
+    },
     {
       id: 7,
       name: 'Arjun Nair',
@@ -118,9 +117,9 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_on',
       gender: 'male',
       qualification: 'Degree',
-      department:  "IT",
+      department: "IT",
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
-    },  
+    },
     {
       id: 8,
       name: 'Deepika Sen',
@@ -131,7 +130,7 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_on',
       gender: 'female',
       qualification: 'Degree',
-      department:  "IT",
+      department: "IT",
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     },
     {
@@ -144,7 +143,7 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_off',
       gender: 'male',
       qualification: 'Certificate',
-      department:  "IT",
+      department: "IT",
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
     },
     {
@@ -157,20 +156,20 @@ export class ClientManagementComponent implements OnInit {
       locationIcon: 'location_off',
       gender: 'female',
       qualification: 'Higher Diploma',
-      department:  "IT",
+      department: "IT",
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     }
-];
-  
+  ];
+
   searchTerm: string = '';
   displayedEmployees: any[] = [];
-  pageSize: number = 5; // Default page size
+  pageSize: number = 5;
   currentPage: number = 0;
   sortOrder: 'asc' | 'desc' = 'asc';
   isDialogOpen: boolean = false;
   selectedCategories: { [key: string]: boolean } = {};
   selectedLocations: { [key: string]: boolean } = {};
-  selectedQualifications: { [key: string]: boolean } = {}; // Qualification filter
+  selectedQualifications: { [key: string]: boolean } = {};
 
   isExpanded: { [key: string]: boolean } = {
     category: false,
@@ -200,35 +199,35 @@ export class ClientManagementComponent implements OnInit {
     this.selectedCategories = {};
     this.selectedLocations = {};
     this.selectedQualifications = {};
-    this.searchTerm = ''; // Clear search term
-    this.filterEmployees(); // Refresh displayed employees after clearing filters
+    this.searchTerm = '';
+    this.filterEmployees();
   }
-  
+
   filterEmployees() {
     const filteredEmployees = this.employees
       .filter(employee => employee.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
       .filter(employee => this.isCategorySelected(employee.category))
       .filter(employee => this.isLocationSelected(employee.location))
-      .filter(employee => this.isQualificationSelected(employee.qualification)); // Qualification filter
+      .filter(employee => this.isQualificationSelected(employee.qualification));
 
-    this.currentPage = 0; // Reset to first page
+    this.currentPage = 0;
     this.displayedEmployees = this.sortEmployees(filteredEmployees).slice(0, this.pageSize);
-    this.paginator.length = filteredEmployees.length; // Update paginator length
+    this.paginator.length = filteredEmployees.length;
   }
 
   isCategorySelected(category: string): boolean {
     return Object.keys(this.selectedCategories).every(key => !this.selectedCategories[key]) ||
-           this.selectedCategories[category];
+      this.selectedCategories[category];
   }
 
   isLocationSelected(location: string): boolean {
     return Object.keys(this.selectedLocations).every(key => !this.selectedLocations[key]) ||
-           this.selectedLocations[location];
+      this.selectedLocations[location];
   }
 
-  isQualificationSelected(qualification: string) { // Qualification filter check
+  isQualificationSelected(qualification: string) {
     return Object.keys(this.selectedQualifications).every(key => !this.selectedQualifications[key]) ||
-           this.selectedQualifications[qualification];
+      this.selectedQualifications[qualification];
   }
 
   toggleSort() {
