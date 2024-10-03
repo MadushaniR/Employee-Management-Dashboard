@@ -5,6 +5,8 @@
   background-color: var(--background-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid #ddd;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
 .logo {
@@ -51,4 +53,27 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px; 
+  }
+
+  .header-right {
+    justify-content: flex-end; 
+  }
+
+  .date {
+    margin: 0 5px; 
+  }
+
+  .header-right span {
+    margin: 0 5px;
+  }
+
+  .header-right mat-icon {
+    margin: 0 5px; 
+  }
 }
