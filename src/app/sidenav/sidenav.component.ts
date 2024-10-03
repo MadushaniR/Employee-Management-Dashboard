@@ -29,14 +29,24 @@ export class SidenavComponent implements OnInit {
     this.applyTheme(theme);
   }
 
+  // applyTheme(theme: string) {
+  //   const sidenavElement = document.querySelector('.sidenav');
+  //   if (theme === 'dark') {
+  //     this.renderer.addClass(sidenavElement, 'dark');
+  //   } else {
+  //     this.renderer.removeClass(sidenavElement, 'dark');
+  //   }
+  // }
+
   applyTheme(theme: string) {
-    const sidenavElement = document.querySelector('.sidenav');
+    const body = document.body;
     if (theme === 'dark') {
-      this.renderer.addClass(sidenavElement, 'dark');
+      this.renderer.addClass(body, 'dark-theme');
     } else {
-      this.renderer.removeClass(sidenavElement, 'dark');
+      this.renderer.removeClass(body, 'dark-theme');
     }
   }
+  
 
   toggleSidenav() {
     this.isCollapsed = !this.isCollapsed; 

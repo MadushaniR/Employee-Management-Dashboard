@@ -100,7 +100,7 @@
 
 <!-- Pagination Control -->
 <div class="paginator-container">
-  <mat-paginator [length]="employees.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+  <mat-paginator class="paginator" [length]="employees.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
     (page)="onPageChange($event)">
   </mat-paginator>
 </div>

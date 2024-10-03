@@ -1,4 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* Global light theme styles */
+:root {
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --border-color: #ccc;
+  }
+  
+  /* Global dark theme styles */
+  .dark-theme {
+    --background-color: #2d3e50;
+    --text-color: #8A8C91;
+    --border-color: #444;
+  }
+  
+  /* Apply variables globally */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family:"Domine", serif;}
