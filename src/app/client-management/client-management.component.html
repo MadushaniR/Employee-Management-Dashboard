@@ -4,7 +4,6 @@
   <mat-icon class="sort-icon">{{ sortOrder === 'asc' ? 'arrow_drop_down' : 'arrow_drop_up' }}</mat-icon>
 </div>
 
-<!-- Trigger Button for Filter Dialog -->
 <button class="filter-button" (click)="openDialog()">Filter</button>
 
 <!-- Filter Dialog Implementation -->
@@ -67,8 +66,8 @@
     </div>
 
     <div class="dialog-footer">
-      <button (click)="applyFilter()" class="dialog-button">Apply</button>
-      <button (click)="clearFilters()" class="dialog-button">Clear</button> <!-- Clear Button -->
+      <button (click)="clearFilters()" class="clear-button">Clear All</button> 
+      <button (click)="applyFilter()" class="apply-button">Apply Filters</button>
     </div>
   </div>
 </div>
