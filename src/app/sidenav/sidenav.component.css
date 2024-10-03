@@ -13,6 +13,42 @@
     bottom: 0;
 }
 
+.mode-toggle {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    background-color: #2D2F39;
+    width: 210px;
+    left: 0;
+    margin-left: -18px;
+    height: 50px;
+}
+
+.theme-button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: #8A8C91;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.theme-button i {
+    margin-right: 5px;
+}
+
+.theme-button:hover {
+    color: #646767; 
+}
+
+.theme-button.active {
+    color: #646767; 
+    font-weight: bold;
+}
+
+
 .sidenav.collapsed {
     width: 10px;
 }

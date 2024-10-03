@@ -38,14 +38,20 @@
 
     <div class="bottom-area">
         <div class="mode-toggle">
-            <label>
-                <input type="radio" name="theme" value="light" (click)="changeTheme('light')" [checked]="selectedTheme === 'light'" />
-                <span class="icon">☀️ Light</span>
-            </label>
-            <label>
-                <input type="radio" name="theme" value="dark" (click)="changeTheme('dark')" [checked]="selectedTheme === 'dark'" />
-                <span class="icon">🌙 Dark</span>
-            </label>
+            <button 
+                class="theme-button" 
+                (click)="changeTheme('light')" 
+                [ngClass]="{'active': selectedTheme === 'light'}">
+                <i class="fas fa-sun"></i>
+                <span class="icon-text">Light</span>
+            </button>
+            <button 
+                class="theme-button" 
+                (click)="changeTheme('dark')" 
+                [ngClass]="{'active': selectedTheme === 'dark'}">
+                <i class="fas fa-moon"></i>
+                <span class="icon-text">Dark</span>
+            </button>
         </div>
     </div>
 </nav>
