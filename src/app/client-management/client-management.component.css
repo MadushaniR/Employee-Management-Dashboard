@@ -248,10 +248,8 @@ text-align: left;
 }
 
 .dialog-footer {
-  display: flex;
-  bottom: 0;
-  justify-content: space-between; /* Space between the buttons */
-  margin-top: 20px; /* Add some space above the buttons */
+  position : fixed;
+  bottom : 0;
   
 }
 
