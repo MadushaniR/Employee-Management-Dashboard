@@ -179,6 +179,15 @@ export class ClientManagementComponent {
     this.displayedEmployees = this.employees.slice(startIndex, endIndex);
   }
 
+  clearFilters() {
+    this.selectedCategories = {};
+    this.selectedLocations = {};
+    this.selectedQualifications = {};
+    this.searchTerm = ''; // Clear search term as well
+    this.filterEmployees(); // Refresh displayed employees after clearing filters
+  }
+  
+
   filterEmployees() {
     const filteredEmployees = this.employees
       .filter(employee => employee.name.toLowerCase().includes(this.searchTerm.toLowerCase()))

@@ -11,7 +11,10 @@
 <!-- Filter Dialog Implementation -->
 <div class="dialog" *ngIf="isDialogOpen">
   <div class="dialog-content">
-    <h2>Filter Employees</h2>
+    <div class="dialog-header">
+      <h2>Filter Employees</h2>
+      <mat-icon class="close-icon" (click)="closeDialog()">close</mat-icon> <!-- Close Icon -->
+    </div>
 
     <div class="filter-section">
       <h3>Category</h3>
@@ -52,10 +55,13 @@
       </label>
     </div>
 
-    <button (click)="applyFilter()" class="dialog-button">Apply</button>
-    <button (click)="closeDialog()" class="dialog-button">Close</button>
+    <div class="dialog-footer">
+      <button (click)="applyFilter()" class="dialog-button">Apply</button>
+      <button (click)="clearFilters()" class="dialog-button">Clear</button> <!-- Clear Button -->
+    </div>
   </div>
 </div>
+
 
 
 <div class="search-container">

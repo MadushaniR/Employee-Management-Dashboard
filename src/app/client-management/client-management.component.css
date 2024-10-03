@@ -184,3 +184,25 @@ h2 {
 .dialog-button {
   margin-top: 10px;
 }
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-icon {
+  cursor: pointer;
+  color: #f44336; /* Red color for the close icon */
+  font-size: 24px; /* Size of the close icon */
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: space-between; /* Space between the buttons */
+  margin-top: 20px; /* Add some space above the buttons */
+}
+
+.dialog-button {
+  margin-right: 10px; /* Space between buttons */
+}
