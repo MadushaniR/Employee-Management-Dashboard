@@ -181,6 +181,16 @@ h2 {
   margin-bottom: 20px;
 }
 
+.filter-section label {
+  display: block; /* Makes each label take a full line */
+  margin-bottom: 10px; /* Space between checkbox items */
+}
+
+.filter-section h3 {
+  margin-bottom: 10px; /* Space below section title */
+}
+
+
 .dialog-button {
   margin-top: 10px;
 }
