@@ -9,7 +9,7 @@ h2 {
   font-weight: 400;
   line-height: 22px;
   text-align: left;
-  color: var(--Text-1, #253053);
+  color: var(--filter-color);
 }
 
 .employee-grid {
@@ -305,7 +305,7 @@ p span:last-child {
 .filter-section label {
   display: block;
   margin-bottom: 10px;
-  color: var(--Txt-2, #5E6067);
+  color: var(--sub-text-color);
   font-family: "Domine", serif;
   font-size: 13px;
   font-weight: 400;
@@ -338,7 +338,7 @@ p span:last-child {
 
 .expand-title {
   font-family: "Domine", serif;
-  color: var(--Text-1, #253053);
+  color: var(--filter-color);
   font-size: 16px;
   font-weight: 400;
   line-height: 20.77px;
