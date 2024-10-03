@@ -13,7 +13,9 @@
   <div class="dialog-content">
     <div class="dialog-header">
       <h2>Filter Employees</h2>
+      <hr/>
       <mat-icon class="close-icon" (click)="closeDialog()">close</mat-icon> <!-- Close Icon -->
+      <hr/>
     </div>
 
     <div class="filter-section">
@@ -24,6 +26,7 @@
       <label>
         <input type="checkbox" [(ngModel)]="selectedCategories['Contract']" /> Contract
       </label>
+      <hr/>
     </div>
 
     <div class="filter-section">
@@ -37,6 +40,7 @@
       <label>
         <input type="checkbox" [(ngModel)]="selectedLocations['Remote']" /> Remote
       </label>
+      <hr/>
     </div>
 
     <div class="filter-section">
@@ -53,6 +57,7 @@
       <label>
         <input type="checkbox" [(ngModel)]="selectedQualifications['certificate']" /> Certificate
       </label>
+      <hr/>
     </div>
 
     <div class="dialog-footer">
