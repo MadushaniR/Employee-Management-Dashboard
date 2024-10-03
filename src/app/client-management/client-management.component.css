@@ -45,6 +45,28 @@ h2 {
   overflow: auto;
 }
 
+.option-container{
+  display: flex; 
+  padding-top: 20px;
+}
+.filter-button{
+  width: 90px;
+height: 39.63px;
+border-radius: 40px;
+border: 1px;
+opacity: 0px;
+background: #535E82;
+color: #fff;
+margin-left: 60px;
+font-family: "Domine", serif;
+font-size: 14px;
+font-weight: 400;
+line-height: 22px;
+cursor: pointer;
+
+
+}
+
 .employee-card {
   max-width: 250px;
   cursor: pointer;
@@ -172,9 +194,25 @@ h2 {
 }
 
 .sort-label {
-  margin-right: 10px;
-  font-weight: bold;
+  width: 90px;
+  height: 39.63px;
+  border-radius: 40px;
+  border: 1px;
+  opacity: 0px;
+  background: #fff;
+  color: var(--B2, #2998FF);
+  border: 2px solid var(--B2, #2998FF);
+  margin-left: 10px;
+  font-family: "Domine", serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+  text-align: center;     
 }
+
 
 .sort-select {
   padding: 8px;

@@ -1,10 +1,24 @@
+<div class="option-container">
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="Search"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="filterEmployees()"
+    class="search-input"
+  />
+  <button class="search-button" (click)="filterEmployees()">
+    <mat-icon class="search-icon">search</mat-icon>
+  </button>
+</div>
+<button class="filter-button" (click)="openDialog()">Filter</button>
+
 <div class="sort-container" (click)="toggleSort()">
-  <label for="sortBy" class="sort-label">Sort By:</label>
-  <span class="sort-order">{{ sortOrder === 'asc' ? 'A-Z' : 'Z-A' }}</span>
-  <mat-icon class="sort-icon">{{ sortOrder === 'asc' ? 'arrow_drop_down' : 'arrow_drop_up' }}</mat-icon>
+  <label for="sortBy" class="sort-label">Sort By</label>
 </div>
 
-<button class="filter-button" (click)="openDialog()">Filter</button>
+
+</div>
 
 <!-- Filter Dialog Implementation -->
 <div class="dialog" *ngIf="isDialogOpen">
@@ -72,18 +86,6 @@
   </div>
 </div>
 
-<div class="search-container">
-  <input
-    type="text"
-    placeholder="Search Employees"
-    [(ngModel)]="searchTerm"
-    (ngModelChange)="filterEmployees()"
-    class="search-input"
-  />
-  <button class="search-button" (click)="filterEmployees()">
-    <mat-icon class="search-icon">search</mat-icon>
-  </button>
-</div>
 
 <div class="employee-cards">
   <mat-card *ngFor="let employee of displayedEmployees" class="employee-card">
