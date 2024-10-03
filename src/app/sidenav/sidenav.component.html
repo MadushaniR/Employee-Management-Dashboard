@@ -2,7 +2,6 @@
     <button (click)="toggleSidenav()" class="toggle-button">
         <i class="fas" [ngClass]="isCollapsed ? 'fa-angle-right' : 'fa-angle-left'"></i>
     </button>
-
     <ul>
         <li>
             <a href="client-management" (click)="onSidebarItemClick($event)">
@@ -38,17 +37,12 @@
 
     <div class="bottom-area">
         <div class="mode-toggle">
-            <button 
-                class="theme-button" 
-                (click)="changeTheme('light')" 
+            <button class="theme-button" (click)="changeTheme('light')"
                 [ngClass]="{'active': selectedTheme === 'light'}">
                 <i class="fas fa-sun"></i>
                 <span class="icon-text">Light</span>
             </button>
-            <button 
-                class="theme-button" 
-                (click)="changeTheme('dark')" 
-                [ngClass]="{'active': selectedTheme === 'dark'}">
+            <button class="theme-button" (click)="changeTheme('dark')" [ngClass]="{'active': selectedTheme === 'dark'}">
                 <i class="fas fa-moon"></i>
                 <span class="icon-text">Dark</span>
             </button>

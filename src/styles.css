@@ -5,24 +5,29 @@
     --title-color: #000;
     --sub-text-color: #7A7A7A;
     --filter-color: var(--Text-1, #253053);
-  }
-  
-  /* Global dark theme styles */
-  .dark-theme {
+}
+
+.dark-theme {
     --background-color: #2d3e50;
     --text-color: #8A8C91;
     --border-color: #444;
     --title-color: #fff;
     --sub-text-color: #c1c0d9;
     --filter-color: #fff;
-  }
-  
-  /* Apply variables globally */
-  body {
+}
+
+body {
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
-  }
-  
-html, body { height: 100%; }
-body { margin: 0; font-family:"Domine", serif;}
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Domine", serif;
+}

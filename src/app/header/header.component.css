@@ -1,55 +1,54 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: var(--background-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    width: 30px;
-    margin-right: 10px;
-  }
-  
-  .company-name {
-    font-family: "Domine", serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 26px;
-    text-align: left;
-    color: var(--text-color);
-  }
-  
-  .date {
-    font-size: 14px;
-    font-weight: 400;
-    color: #8C8C8C;
-    margin-right: 10px;
-  }
-  
-  .header-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-right mat-icon,
-  .header-right img,
-  .header-right span {
-    margin: 0 10px;
-  }
-  
-  .header-right mat-icon {
-    color: #535E82;
-  }
-  
-  .avatar {
-    width: 40px;
-    border-radius: 50%;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-family: "Domine", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: left;
+  color: var(--text-color);
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 400;
+  color: #8C8C8C;
+  margin-right: 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right mat-icon,
+.header-right img,
+.header-right span {
+  margin: 0 10px;
+}
+
+.header-right mat-icon {
+  color: #535E82;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
