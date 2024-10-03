@@ -9,7 +9,7 @@ h2 {
   font-weight: 400;
   line-height: 22px;
   text-align: left;
-  color: var(--Text-1, #253053);
+  color: var(--filter-color);
 }
 
 .employee-grid {
@@ -75,7 +75,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: var(--background-color);
   border: 1px solid var(--Line-1, #D9D9D9);
   border-radius: 10px;
 }
@@ -102,7 +102,7 @@ h2 {
   font-size: 18px;
   font-weight: 600;
   line-height: 22px;
-  color: var(--Text-1, #253053);
+  color: var(--title-color);
   text-align: center;
   margin-bottom: 5px;
 
@@ -114,7 +114,7 @@ h2 {
   font-weight: 400;
   line-height: 22px;
   text-align: center;
-  color: var(--Txt-3, #7A7A7A);
+  color: var(--sub-text-color);
 
 }
 
@@ -124,7 +124,7 @@ h2 {
 
 p {
   font-size: 16px;
-  color: #666666;
+  color:  var(--sub-text-color);;
   margin: 0;
   text-align: justify;
   font-family: "Domine", serif;
@@ -134,7 +134,7 @@ p {
 .label {
   font-weight: bold;
   margin-right: 10px;
-  color: #333333;
+  color:  var(--sub-text-color);;
   text-align: justify;
   font-family: "Domine", serif;
 }
@@ -188,13 +188,17 @@ p span:last-child {
 }
 
 .paginator-container {
-
+  background-color: var(--background-color);
   left: 250;
   right: 0;
-  background-color: white;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 
+}
+
+.paginator{
+  background-color: var(--background-color);
+  color: var(--title-color);
 }
 
 .search-container {
@@ -282,7 +286,7 @@ p span:last-child {
   left: 0;
   height: 100%;
   width: 300px;
-  background-color: white;
+  background-color: var(--background-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   z-index: 1000;
@@ -301,7 +305,7 @@ p span:last-child {
 .filter-section label {
   display: block;
   margin-bottom: 10px;
-  color: var(--Txt-2, #5E6067);
+  color: var(--sub-text-color);
   font-family: "Domine", serif;
   font-size: 13px;
   font-weight: 400;
@@ -334,7 +338,7 @@ p span:last-child {
 
 .expand-title {
   font-family: "Domine", serif;
-  color: var(--Text-1, #253053);
+  color: var(--filter-color);
   font-size: 16px;
   font-weight: 400;
   line-height: 20.77px;
@@ -348,7 +352,7 @@ p span:last-child {
   padding-top: 20px;
   width: 340px;
   padding-bottom: 30px;
-  background-color: white;
+  background-color: var(--background-color);
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }

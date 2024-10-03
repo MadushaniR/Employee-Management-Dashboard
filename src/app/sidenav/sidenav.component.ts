@@ -9,10 +9,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-  selectedTheme: string = 'light';  
-  isCollapsed: boolean = false; 
+  selectedTheme: string = 'light';
+  isCollapsed: boolean = false;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
     const storedTheme = localStorage.getItem('selectedTheme') || 'light';
@@ -30,15 +30,16 @@ export class SidenavComponent implements OnInit {
   }
 
   applyTheme(theme: string) {
-    const sidenavElement = document.querySelector('.sidenav');
+    const body = document.body;
     if (theme === 'dark') {
-      this.renderer.addClass(sidenavElement, 'dark');
+      this.renderer.addClass(body, 'dark-theme');
     } else {
-      this.renderer.removeClass(sidenavElement, 'dark');
+      this.renderer.removeClass(body, 'dark-theme');
     }
   }
 
+
   toggleSidenav() {
-    this.isCollapsed = !this.isCollapsed; 
+    this.isCollapsed = !this.isCollapsed;
   }
 }

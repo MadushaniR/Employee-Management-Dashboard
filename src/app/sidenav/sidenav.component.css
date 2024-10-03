@@ -1,11 +1,67 @@
 .sidenav {
     width: 180px;
     height: 100vh;
-    background-color: #f4f4f4;
-    color: #8A8C91;
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding: 20px;
     position: relative;
     transition: background-color 0.3s ease, color 0.3s ease, width 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.bottom-area {
+    position: fixed;
+    bottom: 0;
+}
+
+.mode-toggle {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    background-color: var(--background-color);
+    width: 210px;
+    left: 0;
+    margin-left: -18px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.sidenav.dark .mode-toggle {
+    background-color: #2D2F39;
+}
+
+.theme-button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: #8A8C91;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.theme-button i {
+    margin-right: 5px;
+}
+
+.sidenav.dark .theme-button {
+    color: #fff;
+}
+
+.theme-button.active {
+    font-weight: bold;
+    color: grey;
+}
+
+
+.theme-button:hover {
+    color: #646767;
+}
+
+.sidenav.dark .theme-button:hover {
+    color: #33a0a3;
 }
 
 .sidenav.collapsed {
@@ -35,10 +91,32 @@
 }
 
 
+.sidenav.dark ul li a {
+    color: #8A8C91;
+}
+
+.sidenav.dark ul li a:hover,
+.sidenav.dark ul li a.active {
+    color: #fff;
+    background-color: transparent;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #8A8C91;
+}
+
+.sidenav.dark .toggle-button {
+    color: #fff;
+}
+
 .toggle-btn {
     position: absolute;
     top: 10px;
-    right: -20px; 
+    right: -20px;
     background-color: #2d3e50;
     border: none;
     border-radius: 50%;
@@ -63,19 +141,3 @@
 .sidenav.dark ul li a {
     color: #8A8C91;
 }
-
-.sidenav.dark ul li a:hover,
-.sidenav.dark ul li a.active {
-    color: #fff;
-    background-color: transparent;
-}
-
-  
-  .toggle-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    color: #8A8C91; 
-  }
-  
