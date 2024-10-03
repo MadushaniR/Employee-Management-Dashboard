@@ -4,10 +4,9 @@
   <mat-icon class="sort-icon">{{ sortOrder === 'asc' ? 'arrow_drop_down' : 'arrow_drop_up' }}</mat-icon>
 </div>
 
-
-
 <!-- Trigger Button for Filter Dialog -->
 <button class="filter-button" (click)="openDialog()">Filter</button>
+
 <!-- Filter Dialog Implementation -->
 <div class="dialog" *ngIf="isDialogOpen">
   <div class="dialog-content">
@@ -19,47 +18,52 @@
     </div>
 
     <div class="filter-section">
-      <h3>Category</h3>
-      <label>
-        <input type="checkbox" [(ngModel)]="selectedCategories['Permanent']" /> Permanent
-      </label>
-      <label>
-        <input type="checkbox" [(ngModel)]="selectedCategories['Contract']" /> Contract
-      </label>
+      <h3 (click)="toggleExpand('category')" class="expand-title">Category <mat-icon>{{ isExpanded['category'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      <div *ngIf="isExpanded['category']">
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedCategories['Permanent']" /> Permanent
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedCategories['Contract']" /> Contract
+        </label>
+      </div>
       <hr />
     </div>
-    
+
     <div class="filter-section">
-      <h3>Location</h3>
-      <label>
-        <input type="checkbox" [(ngModel)]="selectedLocations['Onsite']" /> Onsite
-      </label>
-      <label>
-        <input type="checkbox" [(ngModel)]="selectedLocations['Offsite']" /> Offsite
-      </label>
-      <label>
-        <input type="checkbox" [(ngModel)]="selectedLocations['Remote']" /> Remote
-      </label>
+      <h3 (click)="toggleExpand('location')" class="expand-title">Location <mat-icon>{{ isExpanded['location'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      <div *ngIf="isExpanded['location']">
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedLocations['Onsite']" /> Onsite
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedLocations['Offsite']" /> Offsite
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedLocations['Remote']" /> Remote
+        </label>
+      </div>
       <hr />
     </div>
-    
+
     <div class="filter-section">
-      <h3>Qualification</h3>
-      <label>
-        <input type="checkbox" [(ngModel)]="selectedQualifications['Diploma']" /> Diploma
-      </label>
-      <label>
-        <input type="checkbox" [(ngModel)]="selectedQualifications['Degree']" /> Degree
-      </label>
-      <label>
-        <input type="checkbox" [(ngModel)]="selectedQualifications['Higher Diploma']" /> Higher Diploma
-      </label>
-      <label>
-        <input type="checkbox" [(ngModel)]="selectedQualifications['certificate']" /> Certificate
-      </label>
+      <h3 (click)="toggleExpand('qualification')" class="expand-title">Qualification <mat-icon>{{ isExpanded['qualification'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      <div *ngIf="isExpanded['qualification']">
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedQualifications['Diploma']" /> Diploma
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedQualifications['Degree']" /> Degree
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedQualifications['Higher Diploma']" /> Higher Diploma
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="selectedQualifications['Certificate']" /> Certificate
+        </label>
+      </div>
       <hr />
     </div>
-    
 
     <div class="dialog-footer">
       <button (click)="applyFilter()" class="dialog-button">Apply</button>
@@ -67,8 +71,6 @@
     </div>
   </div>
 </div>
-
-
 
 <div class="search-container">
   <input

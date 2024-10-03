@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -22,12 +22,12 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatChipsModule,
     MatBadgeModule,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './client-management.component.html',
   styleUrls: ['./client-management.component.css'],
 })
-export class ClientManagementComponent {
+export class ClientManagementComponent implements OnInit {
   // Employees data with qualifications
   employees = [
     {
@@ -151,6 +151,7 @@ export class ClientManagementComponent {
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     },
   ];
+  
   searchTerm: string = '';
   displayedEmployees: any[] = [];
   pageSize: number = 10;
@@ -159,7 +160,13 @@ export class ClientManagementComponent {
   isDialogOpen: boolean = false;
   selectedCategories: { [key: string]: boolean } = {};
   selectedLocations: { [key: string]: boolean } = {};
-  selectedQualifications: { [key: string]: boolean } = {}; // New qualification filter
+  selectedQualifications: { [key: string]: boolean } = {}; // Qualification filter
+
+  isExpanded: { [key: string]: boolean } = {
+    category: false,
+    location: false,
+    qualification: false,
+  };
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -183,17 +190,16 @@ export class ClientManagementComponent {
     this.selectedCategories = {};
     this.selectedLocations = {};
     this.selectedQualifications = {};
-    this.searchTerm = ''; // Clear search term as well
+    this.searchTerm = ''; // Clear search term
     this.filterEmployees(); // Refresh displayed employees after clearing filters
   }
   
-
   filterEmployees() {
     const filteredEmployees = this.employees
       .filter(employee => employee.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
       .filter(employee => this.isCategorySelected(employee.category))
       .filter(employee => this.isLocationSelected(employee.location))
-      .filter(employee => this.isQualificationSelected(employee.qualification)); // Apply qualification filter
+      .filter(employee => this.isQualificationSelected(employee.qualification)); // Qualification filter
 
     this.displayedEmployees = this.sortEmployees(filteredEmployees).slice(0, this.pageSize);
   }
@@ -208,7 +214,7 @@ export class ClientManagementComponent {
            this.selectedLocations[location];
   }
 
-  isQualificationSelected(qualification: string): boolean { // New qualification filter check
+  isQualificationSelected(qualification: string): boolean { // Qualification filter check
     return Object.keys(this.selectedQualifications).every(key => !this.selectedQualifications[key]) ||
            this.selectedQualifications[qualification];
   }
@@ -239,5 +245,9 @@ export class ClientManagementComponent {
 
   closeDialog() {
     this.isDialogOpen = false;
+  }
+
+  toggleExpand(section: string) {
+    this.isExpanded[section] = !this.isExpanded[section];
   }
 }
