@@ -5,7 +5,7 @@ export const EMPLOYEES = [
       position: 'UI UX Designer',
       category: 'Permanent',
       joinDate: '01 Sep 2023',
-      location: 'Onsite',
+      location: 'Remote',
       locationIcon: 'location_on',
       gender: 'male',
       qualification: 'Diploma',
