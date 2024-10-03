@@ -23,7 +23,7 @@
     font-weight: 600;
     line-height: 26px;
     text-align: left;
-    color: #253053;
+    color: var(--text-color);
   }
   
   .date {

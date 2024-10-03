@@ -5,6 +5,12 @@
 
     <ul>
         <li>
+            <a href="client-management" (click)="onSidebarItemClick($event)">
+                <i class="fas fa-users"></i>
+                <span class="sidebar-text" *ngIf="!isCollapsed">User Management</span>
+            </a>
+        </li>
+        <li>
             <a href="dashboard" (click)="onSidebarItemClick($event)">
                 <i class="fas fa-tachometer-alt"></i>
                 <span class="sidebar-text" *ngIf="!isCollapsed">Dashboard</span>
@@ -14,12 +20,6 @@
             <a href="#" (click)="onSidebarItemClick($event)">
                 <i class="fas fa-chart-bar"></i>
                 <span class="sidebar-text" *ngIf="!isCollapsed">Client Management</span>
-            </a>
-        </li>
-        <li>
-            <a href="client-management" (click)="onSidebarItemClick($event)">
-                <i class="fas fa-users"></i>
-                <span class="sidebar-text" *ngIf="!isCollapsed">User Management</span>
             </a>
         </li>
         <li>

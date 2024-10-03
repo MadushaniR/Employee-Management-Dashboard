@@ -1,8 +1,9 @@
-/* Global light theme styles */
 :root {
     --background-color: #f4f4f4;
     --text-color: #333;
     --border-color: #ccc;
+    --title-color: #000;
+    --sub-text-color: #7A7A7A;
   }
   
   /* Global dark theme styles */
@@ -10,6 +11,8 @@
     --background-color: #2d3e50;
     --text-color: #8A8C91;
     --border-color: #444;
+    --title-color: #fff;
+    --sub-text-color: #c1c0d9;
   }
   
   /* Apply variables globally */
