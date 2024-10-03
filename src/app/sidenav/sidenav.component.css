@@ -8,6 +8,11 @@
     transition: background-color 0.3s ease, color 0.3s ease, width 0.3s ease;
 }
 
+.bottom-area{
+    position: fixed;
+    bottom: 0;
+}
+
 .sidenav.collapsed {
     width: 10px;
 }
