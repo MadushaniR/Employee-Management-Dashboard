@@ -1,14 +1,14 @@
 .sidenav {
     width: 180px;
     height: 100vh;
-    background-color: #f4f4f4;
-    color: #8A8C91;
+    background-color: #f4f4f4; /* Light mode background */
+    color: #8A8C91; /* Light mode text color */
     padding: 20px;
     position: relative;
     transition: background-color 0.3s ease, color 0.3s ease, width 0.3s ease;
 }
 
-.bottom-area{
+.bottom-area {
     position: fixed;
     bottom: 0;
 }
@@ -17,11 +17,17 @@
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-    background-color: #2D2F39;
+    background-color: #f4f4f4; /* Default light background */
     width: 210px;
     left: 0;
     margin-left: -18px;
     height: 50px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Dark mode styles for the mode-toggle container */
+.sidenav.dark .mode-toggle {
+    background-color: #2D2F39; /* Dark background */
 }
 
 .theme-button {
@@ -29,7 +35,7 @@
     border: none;
     display: flex;
     align-items: center;
-    color: #8A8C91;
+    color: #8A8C91; /* Default light text color */
     cursor: pointer;
     padding: 10px;
     transition: color 0.3s ease;
@@ -39,15 +45,25 @@
     margin-right: 5px;
 }
 
+/* Dark mode styles for buttons */
+.sidenav.dark .theme-button {
+    color: #fff; /* Dark mode text color */
+}
+
+/* Active button styles */
+.theme-button.active {
+    font-weight: bold;
+    color: grey; /* Set the active button color to grey */
+}
+
+/* Hover effects */
 .theme-button:hover {
     color: #646767; 
 }
 
-.theme-button.active {
-    color: #646767; 
-    font-weight: bold;
+.sidenav.dark .theme-button:hover {
+    color: #33a0a3; /* Change this to your dark mode hover color */
 }
-
 
 .sidenav.collapsed {
     width: 10px;
@@ -63,7 +79,7 @@
 }
 
 .sidenav ul li a {
-    color: #8A8C91;
+    color: #8A8C91; /* Light mode link color */
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -75,6 +91,29 @@
     font-size: 16px;
 }
 
+/* Dark mode styles for sidebar links */
+.sidenav.dark ul li a {
+    color: #8A8C91; /* Dark mode link color */
+}
+
+.sidenav.dark ul li a:hover,
+.sidenav.dark ul li a.active {
+    color: #fff; /* Active link color in dark mode */
+    background-color: transparent;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #8A8C91; /* Light mode toggle color */
+}
+
+/* Dark mode styles for toggle button */
+.sidenav.dark .toggle-button {
+    color: #fff; /* Dark mode toggle color */
+}
 
 .toggle-btn {
     position: absolute;
@@ -97,26 +136,10 @@
 }
 
 .sidenav.dark {
-    background-color: #2d3e50;
-    color: #8A8C91;
+    background-color: #2d3e50; /* Dark mode background */
+    color: #8A8C91; /* Text color in dark mode */
 }
 
 .sidenav.dark ul li a {
-    color: #8A8C91;
+    color: #8A8C91; /* Dark mode link color */
 }
-
-.sidenav.dark ul li a:hover,
-.sidenav.dark ul li a.active {
-    color: #fff;
-    background-color: transparent;
-}
-
-  
-  .toggle-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    color: #8A8C91; 
-  }
-  
