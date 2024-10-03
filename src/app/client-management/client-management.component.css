@@ -390,3 +390,11 @@ p span:last-child {
   margin-left: 10px;
   cursor: pointer;
 }
+
+.upper-wrapper {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 20px;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--Line-1, #D9D9D9);
+}
