@@ -145,8 +145,10 @@ export class ClientManagementComponent {
   displayedEmployees: any[] = [];
   pageSize: number = 10;
   currentPage: number = 0;
-  sortOrder: 'asc' | 'desc' = 'asc'; // Default sort order
-  isDialogOpen: boolean = false; // Track dialog visibility
+  sortOrder: 'asc' | 'desc' = 'asc';
+  isDialogOpen: boolean = false;
+  selectedCategories: { [key: string]: boolean } = {}; // Track selected categories
+  selectedLocations: { [key: string]: boolean } = {}; // Track selected locations
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -167,38 +169,52 @@ export class ClientManagementComponent {
   }
 
   filterEmployees() {
-    const filteredEmployees = this.employees.filter(employee => 
-      employee.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
+    const filteredEmployees = this.employees
+      .filter(employee => employee.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
+      .filter(employee => this.isCategorySelected(employee.category))
+      .filter(employee => this.isLocationSelected(employee.location));
 
     this.displayedEmployees = this.sortEmployees(filteredEmployees).slice(0, this.pageSize);
   }
 
+  isCategorySelected(category: string): boolean {
+    // If no category is selected, show all categories
+    return Object.keys(this.selectedCategories).every(key => !this.selectedCategories[key]) ||
+           this.selectedCategories[category];
+  }
+
+  isLocationSelected(location: string): boolean {
+    // If no location is selected, show all locations
+    return Object.keys(this.selectedLocations).every(key => !this.selectedLocations[key]) ||
+           this.selectedLocations[location];
+  }
+
   toggleSort() {
     this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
-    this.filterEmployees(); // Re-filter employees after sorting
+    this.filterEmployees();
   }
 
   sortEmployees(employees: any[]) {
     return employees.sort((a, b) => {
       if (this.sortOrder === 'asc') {
-        return a.name.localeCompare(b.name); // Ascending
+        return a.name.localeCompare(b.name);
       } else {
-        return b.name.localeCompare(a.name); // Descending
+        return b.name.localeCompare(a.name);
       }
     });
   }
 
   openDialog() {
-    this.isDialogOpen = true; // Show the dialog
-  }
-
-  closeDialog() {
-    this.isDialogOpen = false; // Close the dialog
+    this.isDialogOpen = true;
   }
 
   applyFilter() {
-    this.filterEmployees(); // Apply the filter based on the search term
-    this.closeDialog(); // Close the dialog after applying filter
+    this.filterEmployees(); // Apply the filter logic based on the selections
+    this.isDialogOpen = false; // Close the dialog after applying the filter
   }
+  
+  closeDialog() {
+    this.isDialogOpen = false; // Just close the dialog without applying filters
+  }
+  
 }

@@ -8,15 +8,43 @@
 
 <!-- Modal Dialog Implementation -->
 <div class="dialog" *ngIf="isDialogOpen">
-  <div class="dialog-overlay" (click)="closeDialog()"></div>
+  <!-- Set pointer-events to none on the overlay -->
+  <div class="dialog-overlay" style="pointer-events: none;"></div>
+
+  <!-- Dialog content: ensure it's interactable -->
   <div class="dialog-content">
     <h2>Filter Employees</h2>
-    <label for="searchTerm">Search Term</label>
-    <input type="text" [(ngModel)]="searchTerm" id="searchTerm" />
-    <button (click)="applyFilter()">Apply</button>
-    <button (click)="closeDialog()">Close</button>
+
+    <div class="filter-section">
+      <h3>Category</h3>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedCategories['Permanent']" /> Permanent
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedCategories['Contract']" /> Contract
+      </label>
+    </div>
+
+    <div class="filter-section">
+      <h3>Location</h3>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedLocations['Onsite']" /> Onsite
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedLocations['Offsite']" /> Offsite
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedLocations['Remote']" /> Remote
+      </label>
+    </div>
+
+    <!-- Apply and Close buttons -->
+    <button (click)="applyFilter()" class="dialog-button">Apply</button>
+    <button (click)="closeDialog()" class="dialog-button">Close</button>
   </div>
 </div>
+
+
 
 <div class="search-container">
   <input
