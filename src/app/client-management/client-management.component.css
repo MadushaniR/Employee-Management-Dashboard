@@ -6,6 +6,15 @@ h2 {
   margin-bottom: 20px;
   font-size: 24px;
 }
+.filter-title{
+  font-family: "Domine", serif;
+font-size: 20px;
+font-weight: 400;
+line-height: 22px;
+text-align: left;
+color: var(--Text-1, #253053);
+
+}
 
 .employee-grid {
   display: grid;
@@ -84,6 +93,15 @@ h2 {
 
 .location-badge mat-icon {
   vertical-align: middle;
+  margin-top: 5px;
+  cursor: pointer;
+ 
+}
+
+.expand{
+  vertical-align: middle;
+  margin-top: 5px;
+  cursor: pointer;
 }
 
 .location-badge {
@@ -184,6 +202,15 @@ h2 {
 .filter-section label {
   display: block; /* Makes each label take a full line */
   margin-bottom: 10px; /* Space between checkbox items */
+  color: var(--Txt-2, #5E6067);
+  font-family: "Domine", serif;
+
+font-size: 13px;
+font-weight: 400;
+line-height: 16.87px;
+text-align: left;
+
+
 }
 
 .filter-section h3 {
@@ -199,18 +226,33 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .close-icon {
   cursor: pointer;
-  color: #f44336; /* Red color for the close icon */
+  margin-left: 100px;
+  float: right !important; /* Align the icon to the right */
+  color: var(--desable, #8C8C8C); /* Red color for the close icon */
   font-size: 24px; /* Size of the close icon */
+}
+
+.expand-title{
+  font-family: "Domine", serif;
+  color: var(--Text-1, #253053);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.77px;
+  text-align: left;
+  
 }
 
 .dialog-footer {
   display: flex;
+  bottom: 0;
   justify-content: space-between; /* Space between the buttons */
   margin-top: 20px; /* Add some space above the buttons */
+  
 }
 
 .dialog-button {
