@@ -1,24 +1,32 @@
-<div class="sort-container" (click)="toggleSort()">
-  <label for="sortBy" class="sort-label">Sort By:</label>
-  <span class="sort-order">{{ sortOrder === 'asc' ? 'A-Z' : 'Z-A' }}</span>
-  <mat-icon class="sort-icon">{{ sortOrder === 'asc' ? 'arrow_drop_down' : 'arrow_drop_up' }}</mat-icon>
-</div>
+<div class="option-container">
+  <div class="search-container">
+    <input type="text" placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="filterEmployees()"
+      class="search-input" />
+    <button class="search-button" (click)="filterEmployees()">
+      <mat-icon class="search-icon">search</mat-icon>
+    </button>
+  </div>
+  <button class="filter-button" (click)="openDialog()">Filter</button>
 
-<button class="filter-button" (click)="openDialog()">Filter</button>
+  <div class="sort-container" (click)="toggleSort()">
+    <label for="sortBy" class="sort-label">Sort By</label>
+  </div>
+</div>
 
 <!-- Filter Dialog Implementation -->
 <div class="dialog" *ngIf="isDialogOpen">
   <div class="dialog-content">
     <div class="dialog-header">
       <div class="filter-title">Filter</div>
-      <hr/>
-      <mat-icon class="close-icon" (click)="closeDialog()">close</mat-icon> <!-- Close Icon -->
-      <hr/>
+      <hr />
+      <mat-icon class="close-icon" (click)="closeDialog()">close</mat-icon>
+      <hr />
     </div>
 
     <div class="filter-section">
       <hr />
-      <h3 (click)="toggleExpand('category')" class="expand-title">Category <mat-icon class="expand">{{ isExpanded['category'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      <h3 (click)="toggleExpand('category')" class="expand-title">Category <mat-icon class="expand">{{
+          isExpanded['category'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
       <div *ngIf="isExpanded['category']">
         <label>
           <input type="checkbox" [(ngModel)]="selectedCategories['Permanent']" /> Permanent
@@ -31,7 +39,8 @@
     </div>
 
     <div class="filter-section">
-      <h3 (click)="toggleExpand('location')" class="expand-title">Location <mat-icon class="expand">{{ isExpanded['location'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      <h3 (click)="toggleExpand('location')" class="expand-title">Location <mat-icon class="expand">{{
+          isExpanded['location'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
       <div *ngIf="isExpanded['location']">
         <label>
           <input type="checkbox" [(ngModel)]="selectedLocations['Onsite']" /> Onsite
@@ -47,7 +56,8 @@
     </div>
 
     <div class="filter-section">
-      <h3 (click)="toggleExpand('qualification')" class="expand-title">Qualification <mat-icon class="expand">{{ isExpanded['qualification'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      <h3 (click)="toggleExpand('qualification')" class="expand-title">Qualification <mat-icon class="expand">{{
+          isExpanded['qualification'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
       <div *ngIf="isExpanded['qualification']">
         <label>
           <input type="checkbox" [(ngModel)]="selectedQualifications['Diploma']" /> Diploma
@@ -66,39 +76,31 @@
     </div>
 
     <div class="dialog-footer">
-      <button (click)="clearFilters()" class="clear-button">Clear All</button> 
+      <button (click)="clearFilters()" class="clear-button">Clear All</button>
       <button (click)="applyFilter()" class="apply-button">Apply Filters</button>
     </div>
   </div>
 </div>
 
-<div class="search-container">
-  <input
-    type="text"
-    placeholder="Search Employees"
-    [(ngModel)]="searchTerm"
-    (ngModelChange)="filterEmployees()"
-    class="search-input"
-  />
-  <button class="search-button" (click)="filterEmployees()">
-    <mat-icon class="search-icon">search</mat-icon>
-  </button>
-</div>
-
 <div class="employee-cards">
   <mat-card *ngFor="let employee of displayedEmployees" class="employee-card">
-    <mat-card-header>
-      <mat-card-title>{{ employee.name }}</mat-card-title>
-      <mat-card-subtitle>{{ employee.position }}</mat-card-subtitle>
-    </mat-card-header>
     <img mat-card-image [src]="employee.image" alt="{{ employee.name }}">
-    <mat-card-content>
-      <p>Category: {{ employee.category }}</p>
-      <p>Join Date: {{ employee.joinDate }}</p>
-      <p>Location: <mat-icon class="expand">{{ employee.locationIcon }}</mat-icon> {{ employee.location }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>View Details</button>
-    </mat-card-actions>
+    <mat-card-header>
+      <mat-card-title class="name">{{ employee.name }}</mat-card-title>
+      <mat-card-subtitle class="sub-titles">{{ employee.position }}</mat-card-subtitle>
+      <mat-card-subtitle class="sub-titles">{{ employee.department }}</mat-card-subtitle>
+      <mat-card-subtitle class="sub-titles">#{{ employee.id }}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="bottom-container">
+      <p><span class="label">Category:</span> {{ employee.category }}</p>
+      <p><span class="label">Join On:</span> {{ employee.joinDate }}</p>
+    </div>
   </mat-card>
+</div>
+
+<!-- Pagination Control -->
+<div class="paginator-container">
+  <mat-paginator [length]="employees.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
 </div>
