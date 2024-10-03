@@ -1,21 +1,16 @@
 <div class="option-container">
-<div class="search-container">
-  <input
-    type="text"
-    placeholder="Search"
-    [(ngModel)]="searchTerm"
-    (ngModelChange)="filterEmployees()"
-    class="search-input"
-  />
-  <button class="search-button" (click)="filterEmployees()">
-    <mat-icon class="search-icon">search</mat-icon>
-  </button>
-</div>
-<button class="filter-button" (click)="openDialog()">Filter</button>
+  <div class="search-container">
+    <input type="text" placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="filterEmployees()"
+      class="search-input" />
+    <button class="search-button" (click)="filterEmployees()">
+      <mat-icon class="search-icon">search</mat-icon>
+    </button>
+  </div>
+  <button class="filter-button" (click)="openDialog()">Filter</button>
 
-<div class="sort-container" (click)="toggleSort()">
-  <label for="sortBy" class="sort-label">Sort By</label>
-</div>
+  <div class="sort-container" (click)="toggleSort()">
+    <label for="sortBy" class="sort-label">Sort By</label>
+  </div>
 
 
 </div>
@@ -25,14 +20,15 @@
   <div class="dialog-content">
     <div class="dialog-header">
       <div class="filter-title">Filter</div>
-      <hr/>
+      <hr />
       <mat-icon class="close-icon" (click)="closeDialog()">close</mat-icon> <!-- Close Icon -->
-      <hr/>
+      <hr />
     </div>
 
     <div class="filter-section">
       <hr />
-      <h3 (click)="toggleExpand('category')" class="expand-title">Category <mat-icon class="expand">{{ isExpanded['category'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      <h3 (click)="toggleExpand('category')" class="expand-title">Category <mat-icon class="expand">{{
+          isExpanded['category'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
       <div *ngIf="isExpanded['category']">
         <label>
           <input type="checkbox" [(ngModel)]="selectedCategories['Permanent']" /> Permanent
@@ -45,7 +41,8 @@
     </div>
 
     <div class="filter-section">
-      <h3 (click)="toggleExpand('location')" class="expand-title">Location <mat-icon class="expand">{{ isExpanded['location'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      <h3 (click)="toggleExpand('location')" class="expand-title">Location <mat-icon class="expand">{{
+          isExpanded['location'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
       <div *ngIf="isExpanded['location']">
         <label>
           <input type="checkbox" [(ngModel)]="selectedLocations['Onsite']" /> Onsite
@@ -61,7 +58,8 @@
     </div>
 
     <div class="filter-section">
-      <h3 (click)="toggleExpand('qualification')" class="expand-title">Qualification <mat-icon class="expand">{{ isExpanded['qualification'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      <h3 (click)="toggleExpand('qualification')" class="expand-title">Qualification <mat-icon class="expand">{{
+          isExpanded['qualification'] ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
       <div *ngIf="isExpanded['qualification']">
         <label>
           <input type="checkbox" [(ngModel)]="selectedQualifications['Diploma']" /> Diploma
@@ -80,7 +78,7 @@
     </div>
 
     <div class="dialog-footer">
-      <button (click)="clearFilters()" class="clear-button">Clear All</button> 
+      <button (click)="clearFilters()" class="clear-button">Clear All</button>
       <button (click)="applyFilter()" class="apply-button">Apply Filters</button>
     </div>
   </div>
