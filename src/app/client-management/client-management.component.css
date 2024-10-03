@@ -7,6 +7,15 @@ h2 {
   font-size: 24px;
 }
 
+.filter-title {
+  font-family: "Domine", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: var(--Text-1, #253053);
+}
+
 .employee-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -29,16 +38,15 @@ h2 {
 
 .employee-cards {
   padding: 20px;
-  display: grid; /* Use grid layout for cards */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
-  gap: 16px; /* Space between cards */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
 }
 
 .employee-card {
-  max-width: 250px; /* Limit card width */
-  cursor: pointer; /* Change cursor to pointer on hover */
+  max-width: 250px;
+  cursor: pointer;
 }
-
 
 .employee-img {
   width: 40px;
@@ -48,12 +56,13 @@ h2 {
   margin-bottom: 16px;
   border: 3px solid #33A0A3;
 }
+
 .employee-card img {
   width: 100px;
-  height: 100px; 
-  border-radius: 50%; 
-  object-fit: cover; 
-  margin: 0 auto; 
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
 }
 
 .employee-info {
@@ -70,7 +79,8 @@ h2 {
   color: #555;
 }
 
-.category, .join-date {
+.category,
+.join-date {
   font-size: 12px;
   color: #777;
 }
@@ -84,6 +94,14 @@ h2 {
 
 .location-badge mat-icon {
   vertical-align: middle;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.expand {
+  vertical-align: middle;
+  margin-top: 5px;
+  cursor: pointer;
 }
 
 .location-badge {
@@ -109,53 +127,167 @@ h2 {
 }
 
 .mat-form-field .mat-form-field-outline {
-  color: black; 
+  color: black;
 }
 
 .mat-form-field .mat-form-field-outline mat-icon {
-  color: black; 
-}.search-container {
+  color: black;
+}
+
+.search-container {
   position: relative;
-  width: 300px; 
+  width: 300px;
 }
 
 .search-input {
   width: 100%;
-  padding: 8px 40px 8px 10px; 
-  border: 1px solid #ccc; 
+  padding: 8px 40px 8px 10px;
+  border: 1px solid #ccc;
   border-radius: 20px;
 }
 
 .search-button {
-  position: absolute; 
-  right: 1px; 
-  top: 50%; 
+  position: absolute;
+  right: 1px;
+  top: 50%;
   transform: translateY(-50%);
-  background: none; 
+  background: none;
   border: none;
-  cursor: pointer; 
+  cursor: pointer;
   padding: 0;
 }
 
 .search-icon {
-  font-size: 20px; 
-  color: #333; 
+  font-size: 20px;
+  color: #333;
   margin-top: 10px;
 }
+
 .sort-container {
-  display: flex; /* Align items horizontally */
-  align-items: center; /* Center items vertically */
-  margin-bottom: 10px; /* Space below the sort container */
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .sort-label {
-  margin-right: 10px; /* Space between label and dropdown */
-  font-weight: bold; /* Bold label */
+  margin-right: 10px;
+  font-weight: bold;
 }
 
 .sort-select {
-  padding: 8px; /* Padding inside the select */
-  border: 1px solid #ccc; /* Border style */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Change cursor on hover */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--Txt-2, #5E6067);
+  font-family: "Domine", serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16.87px;
+  text-align: left;
+}
+
+.filter-section h3 {
+  margin-bottom: 10px;
+}
+
+.dialog-button {
+  margin-top: 10px;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.close-icon {
+  cursor: pointer;
+  margin-left: 100px;
+  float: right !important;
+  color: var(--desable, #8C8C8C);
+  font-size: 24px;
+}
+
+.expand-title {
+  font-family: "Domine", serif;
+  color: var(--Text-1, #253053);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.77px;
+  text-align: left;
+}
+
+.dialog-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding-top: 20px;
+  width: 340px;
+  padding-bottom: 30px;
+  background-color: white;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.dialog-button {
+  margin-right: 10px;
+}
+
+.clear-button {
+  color: var(--Main-Blue, #2C82F9);
+  background-color: #fff;
+  border: 2px solid var(--Main-Blue, #2C82F9);
+  font-family: "Domine", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  padding: 5px 30px;
+  border-radius: 20px;
+  margin-left: 18px;
+  cursor: pointer;
+}
+
+.apply-button {
+  background-color: var(--Main-Blue, #2C82F9);
+  color: #fff;
+  border: 2px solid var(--Main-Blue, #2C82F9);
+  font-family: "Domine", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  padding: 5px 30px;
+  border-radius: 20px;
+  margin-left: 10px;
+  cursor: pointer;
 }
