@@ -8,10 +8,8 @@
 
 <!-- Trigger Button for Filter Dialog -->
 <button class="filter-button" (click)="openDialog()">Filter</button>
-
 <!-- Filter Dialog Implementation -->
 <div class="dialog" *ngIf="isDialogOpen">
-  <!-- Dialog content: Full-height and Left-aligned -->
   <div class="dialog-content">
     <h2>Filter Employees</h2>
 
@@ -38,7 +36,22 @@
       </label>
     </div>
 
-    <!-- Apply and Close buttons -->
+    <div class="filter-section">
+      <h3>Qualification</h3>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedQualifications['Diploma']" /> Diploma
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedQualifications['Degree']" /> Degree
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedQualifications['Higher Diploma']" /> Higher Diploma
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="selectedQualifications['certificate']" /> Certificate
+      </label>
+    </div>
+
     <button (click)="applyFilter()" class="dialog-button">Apply</button>
     <button (click)="closeDialog()" class="dialog-button">Close</button>
   </div>

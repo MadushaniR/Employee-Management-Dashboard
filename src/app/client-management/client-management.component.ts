@@ -28,6 +28,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./client-management.component.css'],
 })
 export class ClientManagementComponent {
+  // Employees data with qualifications
   employees = [
     {
       id: 1,
@@ -38,6 +39,7 @@ export class ClientManagementComponent {
       location: 'Onsite',
       locationIcon: 'location_on',
       gender: 'male',
+      qualification: 'Diploma',
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
     },
     {
@@ -49,6 +51,7 @@ export class ClientManagementComponent {
       location: 'Offsite',
       locationIcon: 'location_off',
       gender: 'male',
+      qualification: 'Degree',
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
     },
     {
@@ -60,6 +63,7 @@ export class ClientManagementComponent {
       location: 'Onsite',
       locationIcon: 'location_on',
       gender: 'female',
+      qualification: 'Higher Diploma',
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     },
     {
@@ -71,6 +75,7 @@ export class ClientManagementComponent {
       location: 'Offsite',
       locationIcon: 'location_off',
       gender: 'female',
+      qualification: 'certificate',
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     },
     {
@@ -82,6 +87,7 @@ export class ClientManagementComponent {
       location: 'Onsite',
       locationIcon: 'location_on',
       gender: 'male',
+      qualification: 'Diploma',
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
     },
     {
@@ -93,6 +99,7 @@ export class ClientManagementComponent {
       location: 'Offsite',
       locationIcon: 'location_off',
       gender: 'male',
+      qualification: 'Degree',
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
     },
     {
@@ -104,6 +111,7 @@ export class ClientManagementComponent {
       location: 'Onsite',
       locationIcon: 'location_on',
       gender: 'female',
+      qualification: 'Higher Diploma',
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     },
     {
@@ -115,6 +123,7 @@ export class ClientManagementComponent {
       location: 'Offsite',
       locationIcon: 'location_off',
       gender: 'female',
+      qualification: 'certificate',
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     },
     {
@@ -126,6 +135,7 @@ export class ClientManagementComponent {
       location: 'Onsite',
       locationIcon: 'location_on',
       gender: 'male',
+      qualification: 'Degree',
       image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-circle-icon.png',
     },
     {
@@ -137,18 +147,19 @@ export class ClientManagementComponent {
       location: 'Remote',
       locationIcon: 'location_off',
       gender: 'female',
+      qualification: 'Higher Diploma',
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     },
   ];
-
   searchTerm: string = '';
   displayedEmployees: any[] = [];
   pageSize: number = 10;
   currentPage: number = 0;
   sortOrder: 'asc' | 'desc' = 'asc';
   isDialogOpen: boolean = false;
-  selectedCategories: { [key: string]: boolean } = {}; // Track selected categories
-  selectedLocations: { [key: string]: boolean } = {}; // Track selected locations
+  selectedCategories: { [key: string]: boolean } = {};
+  selectedLocations: { [key: string]: boolean } = {};
+  selectedQualifications: { [key: string]: boolean } = {}; // New qualification filter
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -172,21 +183,25 @@ export class ClientManagementComponent {
     const filteredEmployees = this.employees
       .filter(employee => employee.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
       .filter(employee => this.isCategorySelected(employee.category))
-      .filter(employee => this.isLocationSelected(employee.location));
+      .filter(employee => this.isLocationSelected(employee.location))
+      .filter(employee => this.isQualificationSelected(employee.qualification)); // Apply qualification filter
 
     this.displayedEmployees = this.sortEmployees(filteredEmployees).slice(0, this.pageSize);
   }
 
   isCategorySelected(category: string): boolean {
-    // If no category is selected, show all categories
     return Object.keys(this.selectedCategories).every(key => !this.selectedCategories[key]) ||
            this.selectedCategories[category];
   }
 
   isLocationSelected(location: string): boolean {
-    // If no location is selected, show all locations
     return Object.keys(this.selectedLocations).every(key => !this.selectedLocations[key]) ||
            this.selectedLocations[location];
+  }
+
+  isQualificationSelected(qualification: string): boolean { // New qualification filter check
+    return Object.keys(this.selectedQualifications).every(key => !this.selectedQualifications[key]) ||
+           this.selectedQualifications[qualification];
   }
 
   toggleSort() {
@@ -209,12 +224,11 @@ export class ClientManagementComponent {
   }
 
   applyFilter() {
-    this.filterEmployees(); // Apply the filter logic based on the selections
-    this.isDialogOpen = false; // Close the dialog after applying the filter
+    this.filterEmployees();
+    this.isDialogOpen = false;
   }
-  
+
   closeDialog() {
-    this.isDialogOpen = false; // Just close the dialog without applying filters
+    this.isDialogOpen = false;
   }
-  
 }
