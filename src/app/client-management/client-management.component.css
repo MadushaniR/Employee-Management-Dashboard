@@ -37,6 +37,7 @@ h2 {
   height: calc(100vh - 100px);
   overflow: auto;
   margin: 0 auto;
+  scrollbar-width: thin;
 }
 
 .option-container {
@@ -185,13 +186,14 @@ p {
   font-size: 12px;
 }
 
-.mat-paginator {
-  margin-top: 20px;
-  justify-content: center;
-}
+.paginator-container {
 
-.mat-paginator-page-size {
-  font-size: 14px;
+  left: 250;
+  right:0;
+  background-color: white; 
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+  z-index: 1000; 
+
 }
 
 .search-container {

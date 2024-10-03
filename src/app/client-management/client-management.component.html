@@ -11,8 +11,6 @@
   <div class="sort-container" (click)="toggleSort()">
     <label for="sortBy" class="sort-label">Sort By</label>
   </div>
-
-
 </div>
 
 <!-- Filter Dialog Implementation -->
@@ -84,7 +82,6 @@
   </div>
 </div>
 
-
 <div class="employee-cards">
   <mat-card *ngFor="let employee of displayedEmployees" class="employee-card">
     <img mat-card-image [src]="employee.image" alt="{{ employee.name }}">
@@ -93,11 +90,17 @@
       <mat-card-subtitle class="sub-titles">{{ employee.position }}</mat-card-subtitle>
       <mat-card-subtitle class="sub-titles">{{ employee.department }}</mat-card-subtitle>
       <mat-card-subtitle class="sub-titles">#{{ employee.id }}</mat-card-subtitle>
-    
     </mat-card-header>
     <div class="bottom-container">
-    <p><span class="label">Category:</span> {{ employee.category }}</p>
-    <p><span class="label">Join On:</span> {{ employee.joinDate }}</p>
-  </div>
+      <p><span class="label">Category:</span> {{ employee.category }}</p>
+      <p><span class="label">Join On:</span> {{ employee.joinDate }}</p>
+    </div>
   </mat-card>
+</div>
+
+<!-- Fixed Position Pagination Control -->
+<div class="paginator-container">
+  <mat-paginator [length]="employees.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
 </div>

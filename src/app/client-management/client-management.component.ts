@@ -161,12 +161,10 @@ export class ClientManagementComponent implements OnInit {
       image: 'https://freepngimg.com/download/icon/thoughts/10268-woman-user-circle.png',
     }
 ];
-
-
   
   searchTerm: string = '';
   displayedEmployees: any[] = [];
-  pageSize: number = 10;
+  pageSize: number = 5; // Default page size
   currentPage: number = 0;
   sortOrder: 'asc' | 'desc' = 'asc';
   isDialogOpen: boolean = false;
@@ -213,7 +211,9 @@ export class ClientManagementComponent implements OnInit {
       .filter(employee => this.isLocationSelected(employee.location))
       .filter(employee => this.isQualificationSelected(employee.qualification)); // Qualification filter
 
+    this.currentPage = 0; // Reset to first page
     this.displayedEmployees = this.sortEmployees(filteredEmployees).slice(0, this.pageSize);
+    this.paginator.length = filteredEmployees.length; // Update paginator length
   }
 
   isCategorySelected(category: string): boolean {
@@ -226,7 +226,7 @@ export class ClientManagementComponent implements OnInit {
            this.selectedLocations[location];
   }
 
-  isQualificationSelected(qualification: string): boolean { // Qualification filter check
+  isQualificationSelected(qualification: string) { // Qualification filter check
     return Object.keys(this.selectedQualifications).every(key => !this.selectedQualifications[key]) ||
            this.selectedQualifications[qualification];
   }
