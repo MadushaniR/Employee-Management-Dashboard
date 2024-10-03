@@ -1,34 +1,35 @@
 .main-layout {
   display: flex;
-  height: 100vh; 
-  position: relative; /* Position context for absolute elements */
+  height: 100vh;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-app-sidenav {
-  width: 250px; /* Width of the sidenav */
-  position: relative; /* Ensure the sidenav is positioned relative to the layout */
-  z-index: 1; /* Sidenav below the filter panel */
+.sidenav {
+  width: 180px;
+  height: 100vh;
+  background-color: #f4f4f4;
+  color: #8A8C91;
+  padding: 20px;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease, width 0.3s ease;
 }
 
-app-filter-panel {
-  width: 250px; /* Same width as the sidenav */
-  height: 100%; /* Make sure it takes full height */
-  position: absolute; /* Absolute positioning for overlap */
-  left: 0; /* Align to the left */
-  top: 0; /* Align to the top */
-  z-index: 2; /* Bring filter panel above the sidenav */
-  background-color: rgba(255, 255, 255, 0.9); /* Optional background for visibility */
-  /* Optional styles for aesthetics */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-  transition: all 0.3s; /* Smooth transition effect */
+.sidenav.collapsed {
+  width: 50px;
 }
 
 .content-area {
-  flex-grow: 1; /* Allow this area to expand */
+  flex-grow: 1;
   display: flex;
-  flex-direction: column; /* Column layout */
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
 }
 
-body {
-  font-family: "Domine", serif; /* Font family */
+.sidenav.collapsed + .content-area {
+  margin-left: 0;
+}
+
+.sidenav:not(.collapsed) + .content-area {
+  margin-left: 180px;
 }

@@ -34,7 +34,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 5px;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 200px);
   overflow: auto;
   margin: 0 auto;
   scrollbar-width: thin;
@@ -43,6 +43,7 @@ h2 {
 .option-container {
   display: flex;
   padding-top: 20px;
+  margin-left: 20px;
 }
 
 .filter-button {
